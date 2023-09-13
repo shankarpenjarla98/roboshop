@@ -23,7 +23,7 @@ validate(){
     fi
 }
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$logfile
+cp mongo.repo    /etc/yum.repos.d/mongo.repo &>>$logfile
 
 validate $? "mongo.repo setup"
 
