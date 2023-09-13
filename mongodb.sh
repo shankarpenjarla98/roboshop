@@ -17,13 +17,13 @@ fi
 validate(){
     if [ $1 -ne 0 ] 
     then
-       echo "$2 ..... success"
+       echo "$2 ..... failed"
     else
-       echo "$2 ...... Failed"
+       echo "$2 ...... success"
     fi
 }
 
-cp mongo.repo    /etc/yum.repos.d/mongo.repo &>>$logfile
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$logfile
 
 validate $? "mongo.repo setup"
 
