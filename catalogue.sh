@@ -33,7 +33,7 @@ validate $? "installation of nodejs"
 
 useradd roboshop &>>$logfile
 
-valiadte $? "creation of user"
+validate $? "creation of user"
 
 mkdir /app &>>$logfile
 
