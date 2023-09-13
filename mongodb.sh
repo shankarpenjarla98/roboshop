@@ -25,7 +25,7 @@ validate(){
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$logfile
 
-valiadte $? "mongo.repo setup"
+valiadate $? "mongo.repo setup"
 
 yum install mongodb-org -y &>>$logfile
 
