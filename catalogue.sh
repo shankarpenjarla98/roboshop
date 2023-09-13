@@ -7,6 +7,7 @@ scriptname=$0
 logfile=$log_dir-$scriptname-$date.log
 
 
+
 if [ $userid -ne 0 ]
 then
    echo "please try with root access"
@@ -31,6 +32,8 @@ yum install nodejs -y &>>$logfile
 
 validate $? "installation of nodejs"
 
+
+  
 useradd roboshop &>>$logfile
 
 validate $? "creation of user"
