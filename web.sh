@@ -53,7 +53,7 @@ validate $? "unzipping the content"
 
 cp /home/centos/roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf  &>>$logfile
 
-systemctl restart nginx  &$logfile
+systemctl restart nginx  &>>$logfile
 
 validate $? "Restarted the nginx"
 
