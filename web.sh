@@ -23,37 +23,37 @@ validate(){
     fi
 }
 
-yum install nginx -y
+yum install nginx -y &>>$logfile
 
 validate $? "installlation of nginx"
 
-systemctl enable nginx
+systemctl enable nginx  &>>$logfile
 
 validate $? "Enabling nginx server"
 
-systemctl start nginx
+systemctl start nginx   &>>$logfile
 
 validate $? "starting nginx server"
 
-rm -rf /usr/share/nginx/html/*
+rm -rf /usr/share/nginx/html/*   &>>$logfile
 
 validate $? "removed the default html content"
 
-curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
+curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>>$logfile
 
 validate $? "downloading the frontend content"
 
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html   &>>$logfile
 
 validate $? "directing to html content"
 
-unzip /tmp/web.zip
+unzip /tmp/web.zip  &>>$logfile
 
 validate $? "unzipping the content"
 
-cp /home/centos/roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf 
+cp /home/centos/roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf  &>>$logfile
 
-systemctl restart nginx 
+systemctl restart nginx  &$logfile
 
 validate $? "Restarted the nginx"
 
