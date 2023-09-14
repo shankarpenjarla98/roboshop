@@ -28,6 +28,8 @@ do
                                     "Type": "A",
                                      "TTL": 300,
                                   "ResourceRecords": [{"Value": "'$ip_add'"}]
-                            }}]'
+                            }}]
+      }
+      '
  
  done
