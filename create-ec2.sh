@@ -17,7 +17,8 @@ do
      fi
   echo "creating $i instance"
   ip_address=$(aws ec2 run-instances --image-id $image_id   --instance-type $instance_type --security-group-ids $sec_grp_id)
-  echo "created $i instances: $ip_address
+  echo "created $i instances: $ip_address"
+
   aws route53 change-resource-record-sets --hosted-zone-id Z1037665238BF3QDUCKFN --change-batch '
 {
        "Changes": [{
@@ -29,6 +30,8 @@ do
                 "ResourceRecords": [{ "Value": "$ip_address"}]
               }}]
                 
-}
-'
-done
+}'
+
+ done
+
+
