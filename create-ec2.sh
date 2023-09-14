@@ -24,13 +24,14 @@ do
        "Changes": [{
         "Action": "CREATE",
             "ResourceRecordSet": {
-                "Name": "$i.$domain_name",
+                "Name": "$i.'$domain_name'",
                 "Type": "A",
                 "TTL": 60,
-                "ResourceRecords": [{ "Value": "$ip_address"}]
+                "ResourceRecords": [{ "Value": "'$ip_address'"}]
               }}]
                 
 }'
+
 
  done
 
