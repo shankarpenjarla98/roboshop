@@ -17,21 +17,18 @@ do
      fi
   echo "creating $i instance"
   ip_address=$(aws ec2 run-instances --image-id $image_id   --instance-type $instance_type --security-group-ids $sec_grp_id)
-  aws route53 change-resource-record-sets --hosted-zone-id Z1037665238BF3QDUCKFN --change-batch '{
-       "Changes": [
-        {
-            "Action": "CREATE",
+  echo "created $i instances: $ip_address
+  aws route53 change-resource-record-sets --hosted-zone-id Z1037665238BF3QDUCKFN --change-batch '
+{
+       "Changes": [{
+        "Action": "CREATE",
             "ResourceRecordSet": {
-                "Name": "'$i.$domain_name'",
+                "Name": "$i.$domain_name",
                 "Type": "A",
                 "TTL": 60,
-                "ResourceRecords": [
-                    {
-                        "Value": "'$ip_address'"
-                    }
-                ]
-            }
-        }
-    ]
-}'
+                "ResourceRecords": [{ "Value": "$ip_address"}]
+              }}]
+                
+}
+'
 done
