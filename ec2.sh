@@ -8,8 +8,8 @@ security_group=sg-07eac0a2eb62d0655
 
 for i in "${names[@]}"
 do 
- if [[ $i == "mongodb" || $i == "mysql"]];
- 
+ if [[ $i == "mongodb" || $i == "mysql"]]
+
  then
      insta_type="t2.small"
  else
