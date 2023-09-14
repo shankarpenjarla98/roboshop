@@ -15,19 +15,19 @@ do
         inst_type="t2.micro"
      fi
      echo "$i instance created"
-     ip_add=$(aws ec2 run-instances --image-id $imageid --count 1 --instance-type t2.micro  --security-group-ids $security_group)
+     ip_add=$(aws ec2 run-instances --image-id $imageid  --instance-type $insta_type  --security-group-ids $security_group --tag-specifications ResourceType=instance, Tags=[{Key=Name,Value=$i}])
      echo "crteated $i instance:$ip_add"
 
      aws route53 change-resource-record-sets --hosted-zone-id Z1037665238BF3QDUCKFN --change-batch '
      {
               
-                 "Changes": [ {
-                             "Action": "CREATE",
+                 "Changes": [{
+                 "Action": "CREATE",
                             "ResourceRecordSet": {
                                 "Name": "'$i.$domain_n'",
-                                    "Type": "A",
-                                     "TTL": 300,
-                                  "ResourceRecords": [{"Value": "'$ip_add'"}]
+                                "Type": "A",
+                                "TTL": 60,
+                                "ResourceRecords": [{"Value": "'$ip_add'"}]
                             }}]
       }
       '
