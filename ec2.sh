@@ -26,7 +26,7 @@ do
                                 "Name": "'$i.$domain_n'",
                                     "Type": "A",
                                      "TTL": 300,
-                                  "ResourceRecords": [{"Value": "$ip_add"}]
+                                  "ResourceRecords": [{"Value": "'$ip_add'"}]
                             }'
  
  done
