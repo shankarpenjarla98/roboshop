@@ -12,5 +12,4 @@ do
      inst_type="t2.micro"
  echo "$i instance created"
   aws ec2 run-instances --image-id ami-03265a0778a880afb --count 1 --instance-type t2.micro  --security-group-ids sg-07eac0a2eb62d0655
- 
-     
+ done
